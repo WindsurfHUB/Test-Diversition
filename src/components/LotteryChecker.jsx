@@ -37,7 +37,7 @@ const LotteryChecker = ({ lotteryNumbers }) => {
       <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
         {/* Input field for the user to enter their lottery number */}
         <input
-          className="border border-gray-300 px-4 py-2 rounded-md w-full sm:w-auto"
+          className="border border-2 border-[#f2812d] px-4 py-2 rounded-md w-full sm:w-auto"
           type="number"
           value={inputNumber}
           onChange={(e) => setInputNumber(e.target.value)}
@@ -46,7 +46,7 @@ const LotteryChecker = ({ lotteryNumbers }) => {
 
         {/* Button to trigger the checkNumber function */}
         <button
-          className="border border-gray-300 px-4 py-2 rounded-md w-full sm:w-auto"
+          className="relative px-8 py-2 rounded-md bg-white z-10 border-2 border-[#f2812d] before:absolute before:w-full before:transition-all before:duration-500 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-[#f2812d] before:-z-10 before:aspect-square before:hover:scale-150 overflow-hidden before:hover:duration-500"
           onClick={checkNumber}
         >
           ตรวจรางวัล

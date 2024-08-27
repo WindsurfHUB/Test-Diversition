@@ -8,7 +8,7 @@ function App() {
   const [lotteryNumbers, setLotteryNumbers] = React.useState([]);
 
   return (
-    <div>
+    <div className='h-screen bg-[#f5f5f5]'>
       <Header />
       <LotteryGenerator setLotteryNumbers={setLotteryNumbers} />
       <LotteryChecker lotteryNumbers={lotteryNumbers} />
