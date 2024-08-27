@@ -40,20 +40,20 @@ const LotteryGenerator = ({ setLotteryNumbers }) => {
       <div className="text-xl w-full flex flex-wrap justify-between px-4 sm:px-12 md:px-20 lg:px-32">
         <div className="flex flex-col items-center w-full sm:w-1/2 md:w-1/4 mb-4">
           <div className="bg-[#f8b25c] rounded-lg px-2 py-2">รางวัลที่ 1</div>
-          <div className="py-2 text-center">{safeValue(firstPrice)}</div>
+          <div className="text-5xl font-semibold py-4 text-center">{safeValue(firstPrice)}</div>
         </div>
         <div className="flex flex-col items-center w-full sm:w-1/2 md:w-1/4 mb-4">
           <div className="bg-[#f8b25c] rounded-lg px-2 py-2">
             รางวัลเลขข้างเคียงรางวัลที่ 1
           </div>
-          <div className="py-2 flex flex-row justify-between gap-5">
+          <div className="text-5xl font-semibold py-4 flex flex-row justify-between gap-5">
             <div>{safeValue(closeToFirstPrice)}</div>
             <div>{safeValue(closeToFirstPrice2)}</div>
           </div>
         </div>
         <div className="flex flex-col items-center w-full sm:w-1/2 md:w-1/4 mb-4">
           <div className="bg-[#f8b25c] rounded-lg px-2 py-2">รางวัลที่ 2</div>
-          <div className="py-2 flex flex-row justify-between gap-5">
+          <div className="text-5xl font-semibold py-4 flex flex-row justify-between gap-5">
             <div>{safeValue(lotteryNumbers[1])}</div>
             <div>{safeValue(lotteryNumbers[2])}</div>
             <div>{safeValue(lotteryNumbers[3])}</div>
@@ -63,7 +63,7 @@ const LotteryGenerator = ({ setLotteryNumbers }) => {
           <div className="bg-[#f8b25c] rounded-lg px-2 py-2">
             รางวัลเลขท้าย 2 ตัว
           </div>
-          <div className="py-2">
+          <div className="text-5xl font-semibold py-4">
             {safeValue(firstPrice ? firstPrice.toString().slice(-2) : "")}
           </div>
         </div>
