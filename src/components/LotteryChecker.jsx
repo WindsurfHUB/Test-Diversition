@@ -23,15 +23,15 @@ const LotteryChecker = ({ lotteryNumbers }) => {
     const input = parseInt(inputNumber);
 
     if (input === firstPrice) {
-      setResult("ยินดีด้วยคุณถูกรางวัลที่ 1 และรางวัลเลขท้าย 2 ตัว");
+      setResult("ยินดีด้วย\nคุณถูกรางวัลที่ 1 และรางวัลเลขท้าย 2 ตัว");
       setShowConfetti(true);
       setTimeout(() => setShowConfetti(false), 3000);
     } else if (input === closeToFirstPrice || input === closeToFirstPrice2) {
-      setResult("ยินดีด้วยคุณถูกรางวัลเลขข้างเคียงรางวัลที่ 1");
+      setResult("ยินดีด้วย\nคุณถูกรางวัลเลขข้างเคียงรางวัลที่ 1");
     } else if (secondPrices.includes(input)) {
-      setResult("ยินดีด้วยคุณถูกรางวัลที่ 2");
+      setResult("ยินดีด้วย\nคุณถูกรางวัลที่ 2");
     } else if (input.toString().slice(-2) === lastTwoDigits) {
-      setResult("ยินดีด้วยคุณถูกรางวัลเลขท้าย 2 ตัว");
+      setResult("ยินดีด้วย\nคุณถูกรางวัลเลขท้าย 2 ตัว");
     } else {
       setResult("ไม่ถูกรางวัล");
     }
@@ -64,7 +64,14 @@ const LotteryChecker = ({ lotteryNumbers }) => {
       {/* Display the result message if available */}
       {result && (
         <div className="mt-4 text-center">
-          <p>{result}</p>
+          <p className="text-xl font-semibold">
+            {result.split("\n").map((line, index) => (
+              <React.Fragment key={index}>
+                {line}
+                <br /> {/* Line break */}
+              </React.Fragment>
+            ))}
+          </p>
         </div>
       )}
       {/* Confetti effect */}
