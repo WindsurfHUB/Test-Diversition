@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Confetti from "react-confetti";
 
 // LotteryChecker component checks if the input number matches any of the generated lottery numbers
 const LotteryChecker = ({ lotteryNumbers }) => {
@@ -7,6 +8,8 @@ const LotteryChecker = ({ lotteryNumbers }) => {
 
   // State to store the result message
   const [result, setResult] = useState("");
+
+  const [showConfetti, setShowConfetti] = useState(false);
 
   // Extract the relevant lottery numbers for comparison
   const firstPrice = lotteryNumbers[0];
@@ -20,7 +23,9 @@ const LotteryChecker = ({ lotteryNumbers }) => {
     const input = parseInt(inputNumber);
 
     if (input === firstPrice) {
-      setResult("ถูกรางวัลที่ 1 !!!");
+      setResult("🎉ถูกรางวัลที่ 1 !!!🎉");
+      setShowConfetti(true);
+      setTimeout(() => setShowConfetti(false), 3000);
     } else if (input === closeToFirstPrice || input === closeToFirstPrice2) {
       setResult("ถูกรางวัลเลขข้างเคียงรางวัลที่ 1 !!");
     } else if (secondPrices.includes(input)) {
@@ -31,6 +36,9 @@ const LotteryChecker = ({ lotteryNumbers }) => {
       setResult("ไม่ถูกรางวัล");
     }
   };
+
+  const width = window.innerWidth;
+  const height = window.innerHeight;
 
   return (
     <div className="w-full px-4 sm:px-12 md:px-20 lg:px-32">
@@ -59,6 +67,8 @@ const LotteryChecker = ({ lotteryNumbers }) => {
           <p>{result}</p>
         </div>
       )}
+      {/* Confetti effect */}
+      {showConfetti && <Confetti width={width} height={height} />}
     </div>
   );
 };
