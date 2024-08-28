@@ -14,19 +14,35 @@ const LotteryChecker = ({ lotteryNumbers }) => {
 
   const checkNumber = () => {
     const input = parseInt(inputNumber);
-
+    const screenWidth = window.innerWidth;
+  
     if (input === firstPrice) {
       setResult("ยินดีด้วย\nคุณถูกรางวัลที่ 1 และรางวัลเลขท้าย 2 ตัว");
       setShowConfetti(true);
+      if (screenWidth <= 640) {
+        alert("ยินดีด้วย! คุณถูกรางวัลที่ 1 และรางวัลเลขท้าย 2 ตัว");
+      }
       setTimeout(() => setShowConfetti(false), 3000);
     } else if (input === closeToFirstPrice || input === closeToFirstPrice2) {
       setResult("ยินดีด้วย\nคุณถูกรางวัลเลขข้างเคียงรางวัลที่ 1");
+      if (screenWidth <= 640) {
+        alert("ยินดีด้วย! คุณถูกรางวัลเลขข้างเคียงรางวัลที่ 1");
+      }
     } else if (secondPrices.includes(input)) {
       setResult("ยินดีด้วย\nคุณถูกรางวัลที่ 2");
+      if (screenWidth <= 640) {
+        alert("ยินดีด้วย! คุณถูกรางวัลที่ 2");
+      }
     } else if (input.toString().slice(-2) === lastTwoDigits) {
       setResult("ยินดีด้วย\nคุณถูกรางวัลเลขท้าย 2 ตัว");
+      if (screenWidth <= 640) {
+        alert("ยินดีด้วย! คุณถูกรางวัลเลขท้าย 2 ตัว");
+      }
     } else {
       setResult("ไม่ถูกรางวัล");
+      if (screenWidth < 640) {
+        alert("ไม่ถูกรางวัล");
+      }
     }
   };
 
@@ -37,7 +53,7 @@ const LotteryChecker = ({ lotteryNumbers }) => {
     <div className="w-full px-4">
       <div className="flex justify-center items-center gap-4">
         <input
-          className="border border-2 border-[#f2812d] px-3 py-2 rounded-md w-full sm:w-1/3 lg:w-1/5"
+          className="border-2 border-[#f2812d] px-3 py-2 rounded-md w-full sm:w-1/3 lg:w-1/5"
           type="number"
           value={inputNumber}
           onChange={(e) => setInputNumber(e.target.value)}
